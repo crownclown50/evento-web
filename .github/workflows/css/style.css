@@ -1,0 +1,208 @@
+
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+html {
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.titulo, h1{
+    font-size: 3rem;
+    margin-top:0.2rem;
+    margin-bottom:2rem;
+    text-align: center;
+}
+header.principal{
+    background-image: url(../img/fondo.svg);
+    display: grid;
+    grid-template-rows: repeat(5,2fr);
+    background-size: cover;
+    background-position: center center;
+}
+
+a.facebook{
+    background-image: url(../img/facebook.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+
+a.insta{
+    background-image: url(../img/instagram.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+a.x{
+    background-image: url(../img/twitter-x.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.btn {
+    background-color: #de00e6b6;
+    color: rgb(225, 249, 241);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    border-radius: .5rem;
+    border: none;
+}
+.insta.btn:hover {
+    background-color:red;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.red-social{
+    background-color:transparent;
+    color: black;
+}.btn-info:hover{
+    color: white
+}
+
+h1, p{
+    margin-top: 3rem;
+}
+.card{
+    border: #f8f9fa;
+}
+.titulo-contacto,
+.formulario-contacto{
+    padding-bottom: 9px;
+
+}
+.formulario-contacto{
+    position: relative;
+    overflow: hidden;
+}
+@media(min-width:  980px) {
+    .titulo-contacto{
+        margin-right: 10rem;
+        margin-left: 10rem;
+    }
+    .formulario-contacto{
+        margin-right: 6rem;
+        margin-left: 6rem;
+    }
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin{
+    from {
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+.contacto{
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+.formulario-contacto::after,
+.formulario-contacto::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),red, rgb(128, 111, 0), rgb(144, 0, 255),rgb(0, 255, 102)); /* Efecto de fondo */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: -1; /* Colocamos detrás del formulario */
+    padding: 2px;
+    border-radius: 10px; 
+    animation: 3s spin linear infinite; /* Animación de giro */
+}
+.formulario-contacto::before {
+    filter: blur(2rem); /* Efecto de desenfoque */
+    opacity: 0.5; /* Opacidad del fondo desenfocado podemos cambiar si gustamos*/
+}
+.registro{
+    padding-bottom: 1rem;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+.navbar {
+    position: relative; /* Asegura que el navbar sea relativo */
+}
+
+/* Contenedor de la navegación */
+.contenido-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d9e3ee;
+    box-shadow: 10px 10px 16px -6px rgba(0, 0, 0, .5);
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem; /* Tamaño del texto del logo */
+    color: var(--azulOscuro); /* Color personalizado */
+    
+}
+
+.navbar-toggler {
+    border: none; /* Elimina el borde del botón de toggler */
+}
+.navbar a{
+    transition: all 0.2s ease-in-out
+}
+
+
+/* Estilo para el menú colapsado */
+.collapse {
+    background-color: #dae5e7; /* Color de fondo del menú colapsado */
+    animation: desplzamiento .5s ease-in-out; /* Animación al mostrar el menú */
+}
+
+
+
+.navbar-nav .nav-link:hover {
+    background-color: #0d7383; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 768px) {
+    .navbar-collapse {
+        justify-content: center; 
+    }
+
+
+    .separator { 
+        display: none; /* Oculta el separador en pantallas grandes si no es necesario */
+    }
+}
+
+/* Estilos para el separador (si lo necesitas) */
+.separator span {
+    width: 3rem;
+    height: 0.8rem;
+    border: 2.6px solid #d9e3ee;
+    background-color: #0d7383;
+    display: contents;
+}
+
+
